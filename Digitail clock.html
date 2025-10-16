@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 22px;
+      color: #ffb84d;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    #clock {
+      width: 320px;
+      height: 90px;
+      background: linear-gradient(145deg, #ff9b00, #ffb84d);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(255, 155, 0, 0.6), 
+                  inset 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    #clock:hover {
+      transform: scale(1.05);
+    }
+
+    #time {
+      font-size: 3.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      color: #1d1d1d;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <p>Your Local Time</p>
+  <div id="clock"><p id="time"></p></div>
+
+  <script>
+    let clock = document.getElementById('clock')
+    let time = document.getElementById('time')
+
+    setInterval(() => {
+      let newdate = new Date().toLocaleTimeString();
+      time.innerText = newdate;
+    }, 1000)
+  </script>
+</body>
+</html>
