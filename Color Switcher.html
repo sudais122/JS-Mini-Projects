@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Switcher</title>
+  <style>
+    /* Default styles */
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: gray;
+      transition: background-color 0.3s;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      border: 3px solid black;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>🎨 Color Switcher</h1>
+
+  <div class="container">
+    <label id="box1" for="red" class="box" style="background-color: red;"></label>
+    <label id="box2" for="green" class="box" style="background-color: green"></label>
+    <label id="box3" for="blue" class="box" style="background-color: blue"></label>
+    <label id="box4" for="yellow" class="box" style="background-color: yellow;"></label>
+  </div>
+</body>
+
+<script>
+
+
+    document.getElementById('box1').addEventListener( 'click', function(e){
+        document.body.style.backgroundColor = 'red';
+    });
+    document.getElementById('box2').addEventListener( 'click', function(e){
+        document.body.style.backgroundColor = 'green';
+    });
+    document.getElementById('box3').addEventListener( 'click', function(e){
+        document.body.style.backgroundColor = 'blue';
+    });
+    document.getElementById('box4').addEventListener( 'click', function(e){
+        document.body.style.backgroundColor = 'yellow';
+    });
+
+    // const colors = ["red",'green','blue',"yellow"]
+
+    // colors.forEach( (color , index) => {
+    //     document.getElementById(`box${index + 1}`).addEventListener('click', function(e){
+    //         document.body.style.backgroundColor = color
+    //     })
+    // }). 
+    // do the sam ework as the above 
+</script>
+</html>
+
