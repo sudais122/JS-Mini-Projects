@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<style>
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 100%, rgba(165, 210, 107, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    }
+.Clock {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid white;
+    background: radial-gradient(circle at center, #f5f5f5 0%, #ccc 100%);
+    box-shadow: 0 0 30px rgba(0,0,0,0.3), inset 0 0 20px rgba(255,255,255,0.2);
+}
+.needle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center; 
+    transform: rotate(0deg);       
+    border-radius: 2px;
+    background-color: black;
+}
+
+#hr {
+    width: 90px;
+    height: 6px;
+    background-color: #333;
+    z-index: 3;
+}
+
+#min {
+    width: 120px;
+    height: 4px;
+    background-color: #555;
+    z-index: 2;
+}
+
+#sec {
+    width: 140px;
+    height: 2px;
+    background-color: red;
+    z-index: 1;
+}
+.center{
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+}
+</style>
+<body>
+    <div class="Clock">
+        <div class="center"></div>
+        <div class="needle" id="hr"></div>
+        <div class="needle" id="min"></div>
+        <div class="needle" id="sec"></div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+</html>
