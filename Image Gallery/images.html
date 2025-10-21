@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Layout with Text</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #222;
+    }
+
+    .pic {
+      position: relative;
+      width: 20%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: all 0.5s ease;
+    }
+    .text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .top-text {
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transform: translateY(-50rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .main-text {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
+    .bottom-text {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+    transform: translateY(50rem);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="pic">
+      <img src="man-sits-end-trolltunga-before-mountains.jpg" alt="">
+      <div class="text">
+        <div class="top-text">Adventure Awaits</div>
+        <div class="main-text">Explore the Edge</div>
+        <div class="bottom-text">Norway, 2025</div>
+      </div>
+    </div>
+
+    <div class="pic">
+      <img src="bridge-sea-middle-mountains.jpg" alt="">
+      <div class="text">
+        <div class="top-text">Bridge to Dreams</div>
+        <div class="main-text">Calm Beyond </div>
+        <div class="bottom-text">Scotland, 2024</div>
+      </div>
+    </div>
+
+    <div class="pic">
+      <img src="man-sits-end-trolltunga-before-mountains.jpg" alt="">
+      <div class="text">
+        <div class="top-text">Find Your Peak</div>
+        <div class="main-text">Climb Higher</div>
+        <div class="bottom-text">Himalayas, 2023</div>
+      </div>
+    </div>
+
+    <div class="pic">
+      <img src="bridge-sea-middle-mountains.jpg" alt="">
+      <div class="text">
+        <div class="top-text">Path Over Water</div>
+        <div class="main-text">Serenity Flows</div>
+        <div class="bottom-text">Iceland, 2025</div>
+      </div>
+    </div>
+
+    <div class="pic">
+      <img src="man-sits-end-trolltunga-before-mountains.jpg" alt="">
+      <div class="text">
+        <div class="top-text">Moments of Peace</div>
+        <div class="main-text">Breathe the Wild</div>
+        <div class="bottom-text">Norway, 2024</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="images.js"></script>
+</html>
