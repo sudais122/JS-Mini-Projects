@@ -26,7 +26,7 @@ pics.forEach(pic => {
     top.style.transform = 'translateY(-15rem)';
     top.style.transition = 'transform 0.5s ease';
 
-    bottom.style.transform = 'translateY(15rem)';
+    bottom.style.transform = 'translateY(15 rem)';
     bottom.style.transition = 'transform 0.5s ease';
   });
 
