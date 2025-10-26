@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 450px;
+    justify-content: center;
+    border-radius: 10px;
+    height:auto;
+    background-color: rgb(255, 255, 255);   
+}
+.task {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center; 
+}
+
+.task input {
+    background-color: #e2e2e2;
+  width: 70%;   
+  height: 70%;
+ border-top-left-radius: 50px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 50px;
+  border: none;
+  padding-left: 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+.task button {
+    color: white;
+  width: 20%;   
+  height: 70%;
+  border-radius: 50px;
+  border: none;
+  background-color: #ffa500;
+  font-weight: bold;
+  cursor: pointer;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 0px;
+}
+.task button:hover{
+    background-color: rgb(255, 171, 16);
+}
+.Newtask{
+    width: 93%;
+    justify-content: space-between;
+    display: none;
+    align-items: center;
+    height: 5vh;
+}
+.main-tasks{
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 5vh;
+}
+.remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: white;
+}
+.remove:hover{
+      background-color: #f0f0f0;
+}
+.remove svg{
+    width: 1rem;
+    height: 1rem;
+}
+.check{
+    border: gray 1px solid;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+}
+.check svg{
+    display: none;
+}
+.task-text{
+    width: 18rem;
+    height: 1rem;
+    color: #484848;
+}
+.task-text p{
+    cursor: pointer;
+}

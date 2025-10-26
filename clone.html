@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clone</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: firebrick;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <ul>
+        <li>box</li>
+        <li>box2</li>
+        <li>box3</li>
+    </ul>
+</body>
+<script>
+    const box = document.querySelector('.box');
+    const clone = box.cloneNode(true);
+    document.body.appendChild(clone);
+
+    const clone2 = box.cloneNode(true);
+    const cloneou = document.body.appendChild(clone2);
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Example</title>
+</head>
+<body>
+    <p class="paragraph"></p>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button class="btn">Click me</button>
+
+    <script>
+        const input = document.getElementById('name');
+        const button = document.querySelector('.btn');
+        const p = document.querySelector('.paragraph');
+button.addEventListener('click', () => {
+    const name = input.value
+    if (name) {
+        p.innerText = `Hello, my name is ${name}`;
+        input.value = "";
+        localStorage.setItem('my name is ',name)
+
+    }
+});
+window.addEventListener('load',()=>{
+    let mname = localStorage.getItem('name',input.name);
+    p.innerText = mname;
+})
+    </script>
+</body>
+</html>
