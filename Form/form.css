@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background-color: #e8f3ec;
+}
+.mina-container {
+    background-color: #e8f3ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    width: 480px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.input-group.full-width {
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+label span {
+    color: #2f855a;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #2f855a;
+}
+
+.radio-group {
+    display: flex;
+    gap: 16px;
+}
+
+.radio-group label {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #2f855a;
+}
+
+.checkbox {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.checkbox input {
+    margin-right: 6px;
+    accent-color: #2f855a;
+}
+
+button {
+    width: 100%;
+    background-color: #007b5e;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background-color: #00684c;
+}
+p{
+    margin: 5px;
+    font-size: 12px;
+    color: rgba(255, 0, 0, 0.705);
+    display: none;
+}
+
+.send-message{
+    margin-top: -100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-radius: 5px;
+    position: absolute;
+    transition: opacity 0.4s ease;
+}
+.conform-box{
+    padding-left: 10px;
+    background-color: darkslategrey;
+    border-radius: 15px;
+    width: 300px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    transition: all 0.4s ease;
+}
+.send-message-box{
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    height: 30px;
+}
+.msgsend{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    padding-left: 10px;
+}
+h5{
+    color: white;
+    font-weight: lighter;
+}
+.send-message-text{
+    font-size: 1rem;
+    color: white;
+    font-weight: lighter;
+}
