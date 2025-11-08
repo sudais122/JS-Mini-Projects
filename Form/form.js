@@ -2,7 +2,7 @@ const firstname = document.querySelector('#first-name');
 const lastname = document.querySelector('#last-name');
 const email = document.querySelector('#email');
 const message = document.querySelector('#message');
-const checkbox = document.querySelector('.checkbox input'); // select the input inside checkbox
+const checkbox = document.querySelector('.checkbox input'); 
 const error = document.getElementsByTagName('p');
 const btn = document.getElementById('btn');
 
@@ -44,7 +44,6 @@ const showErrors = () => {
         error[3].style.display = 'none';
         message.style.border = '1px solid #ccc';
     }
-
     if (!checkbox.checked) {
         error[4].style.display = 'block';
         valid = false;
@@ -71,7 +70,6 @@ const hideConfirmation = () => {
     confirmBox.style.transition = '0.4s ease';
 };
 
-// Button click event
 btn.addEventListener('click', function(e) {
     e.preventDefault();
     const isValid = showErrors();
