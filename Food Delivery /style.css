@@ -45,12 +45,13 @@ nav {
     width: 20px;
     z-index: 999;
     height: 20px;
-    background-color: orange;
+    background-color: #ED6C2F;
 }
 .item-count i {
     margin-top: 7px;
     margin-left: 6px;
     font-size: 2rem;
+    cursor: pointer;
 }
 .items p {
     font-size: 12px;
@@ -101,7 +102,7 @@ nav {
     width: 100%;
     height: 80%;
     background-color: #EFF0F1;
-    overflow: hidden; /* make sure image doesn’t spill out */
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,3 +150,160 @@ nav {
     cursor: pointer;
     height: 70%;
 }
+.Cart {
+    z-index: 9999;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 100vh; 
+    background-color: #fff;
+    position: fixed; 
+    top: 0;
+    right: -350px; 
+    transition: right 0.3s ease; 
+}
+
+.close{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.4rem;
+    width:  100%;
+    cursor: pointer;
+    height: 30px;
+}
+.Your-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    width: 100%;
+    height: 50px;
+}
+.item{
+    gap: 10px;
+    display: flex;
+    width: 85%;
+    margin-top: 1rem;
+    height: 90px;
+}
+.item-image {
+    width: 35%;
+    background-color: #ECEEEF;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.item-details{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 65%;
+    height: 100%;
+}
+.item-details h5{
+    color: #1A1A1A;
+}
+.item-details p{
+    color: #C49B3E;
+}
+.Delete{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Delete svg{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.rem-add {
+    width: 90px;
+    display: flex;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    overflow: hidden; 
+}
+
+.Decrese,
+.Increse {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.count {
+    width: 40%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.Hr-line{
+    width: 80%;
+    height: 1px;
+    margin-top: 1rem;
+    background-color: gray;
+    border-radius: 10px;
+}
+.Total{
+    gap: 10px;
+    display: flex;
+    color: gray;
+    justify-content: end;
+    align-items: center;
+    width: 80%;
+    margin-top: 10px;
+    height: 20px;
+}
+.Total h5{
+    color: rgb(76, 76, 76);
+}
+.Buy-Btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 80%;
+    height: 30px;
+}
+.Buy-Btn button {
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    border: none;
+    background-color: #F16D31;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+/* Hover effect */
+.Buy-Btn button:hover {
+    background-color: #e05a20; 
+    transform: scale(1.05);
+}
+
+
+/* media queris */

@@ -8,22 +8,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <!--item Cart-->
+    <div class="Cart">
+        <div class="close"><i class="fa-solid fa-xmark" id="Close-icon"></i></div>
+        <div class="Your-cart"><p>Your Cart</p></div>
+        <div class="item">
+            <div class="item-image"><img src="images/product3.jpg" alt=""></div>
+            <div class="item-details">
+                <h5>Casual Black Polo</h5>
+                <p>$100</p>
+                <div class="rem-add">
+                    <div class="Decrese" style="color: gray;">-</div>
+                    <div class="count">1</div>
+                    <div class="Increse">+</div>
+                </div>
+            </div>
+            <div class="Delete"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#000000" d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"></path></g></svg></div>
+        </div>
+        <div class="Hr-line"></div>
+        <div class="Total"><p>Total:</p><h5>$499</h5></div>
+        <div class="Buy-Btn"><button>Buy Now</button></div>
+    </div>
+    <!--nav bar-->
     <nav>
         <div class="navlinks">
             <p>Ecommerece</p>
             <div class="item-count">
                   <div class="items"><p>0</p></div> 
-                <i class="fa-solid fa-bag-shopping"></i>
+                <i class="fa-solid fa-bag-shopping " id="Cart-icon"></i>
             </div>
         </div>
     </nav>
     <!--main section-->
     <div class="Product">
         <p>Shop Product</p>
-    </div>
-    <!--item Cart-->
-    <div class="item-cart">
-
     </div>
     <!--Products-->
     <div class="products">

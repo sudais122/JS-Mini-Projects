@@ -1,8 +1,10 @@
-const mobileNav = document.querySelector(".hamburger");
-const navbar = document.querySelector(".menubar");
+const Cart = document.getElementById('Cart-icon');
+const CartMenu = document.querySelector('.Cart');
 
-const toggleNav = () => {
-  navbar.classList.toggle("active");
-  mobileNav.classList.toggle("hamburger-active");
-};
-mobileNav.addEventListener("click", () => toggleNav());
+Cart.addEventListener( 'click' ,(e) =>{
+  CartMenu.style.right = '0';
+});
+const HideMenu = document.getElementById('Close-icon');
+HideMenu.addEventListener( 'click' , (e)=>{
+  CartMenu.style.right = '-350px'
+})
