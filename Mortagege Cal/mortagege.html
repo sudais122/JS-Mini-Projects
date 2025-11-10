@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator</title>
+  <link rel="stylesheet" href="mortgage.css">
+</head>
+<body>
+  <div class="container">
+    <div class="calculator">
+      <h2>Mortgage Calculator <a href="#" class="clear">Clear All</a></h2>
+
+      <!-- Amount -->
+      <div class="amount">
+        <p class="mortagege-amount">Mortgage Amount</p>
+        <div class="amount-main">
+          <div class="euro">£</div>
+          <div class="euro-input">
+            <input type="number" min="10" id="amount-txt">
+          </div>
+        </div>
+        <p class="amounterror" style="font-size: 12px; color: red;"></p>
+      </div>
+
+      <!-- Term and Interest -->
+      <div class="term-intrest">
+        <div class="term">
+          <p>Mortgage Term</p>
+          <div class="input term-input" id="Terms">
+            <div class="icon-yr">years</div>
+            <div class="yr-input">
+              <input type="number" min="1" id="years">
+            </div>
+          </div>
+          <p class="TermError" style="font-size: 12px; color: red;"></p>
+        </div>
+
+        <div class="interst">
+          <p>Mortgage Interest</p>
+          <div class="input" id="Intrest-input">
+            <div class="icon">%</div>
+            <div class="per-input">
+              <input type="number" min="1" id="interst">
+            </div>
+          </div>
+          <p class="Intresterror" style="font-size: 12px; color: red;"></p>
+        </div>
+      </div>
+
+      <!-- Mortgage Type -->
+      <div class="mortagege-type">
+        <p>Mortgage Type</p>
+        <div class="repayments">
+          <label>
+            <input type="radio" name="mortgage-type" id="radio0">
+            Repayment
+          </label>
+        </div>
+        <div class="interst-only">
+          <label>
+            <input type="radio" name="mortgage-type" id="radio1">
+            Interest Only
+          </label>
+        </div>
+        <p class="radioerror" style="font-size: 12px; color: red; "></p>
+      </div>
+
+      <!-- Calculate Button -->
+      <div class="Payments-btn">
+        <button id="calculate-btn">Calculate Payments</button>
+      </div>
+    </div>
+
+    <!-- Default Results Box -->
+    <div class="results">
+      <img src="https://cdn-icons-png.flaticon.com/512/1048/1048910.png" width="80" alt="illustration">
+      <h3>Results shown here</h3>
+      <p>Complete the form and click "calculate repayments" to see your monthly repayments.</p>
+    </div>
+
+    <!-- Mortgage Results Card -->
+    <div class="mortgage-results-card" id="mortgage-results-card">
+      <h2 class="mortgage-heading" id="mortgage-heading">Your results</h2>
+      <p class="mortgage-description" id="mortgage-description">
+        Your results are shown below based on the information you provided.
+        To adjust the results, edit the form and click “calculate repayments” again.
+      </p>
+
+      <div class="mortgage-repayments-box" id="mortgage-repayments-box">
+        <p class="mortgage-label" id="mortgage-label">Your monthly repayments</p>
+        <h1 class="mortgage-amount" id="mortgage-amount">£0.00</h1>
+        <hr class="mortgage-divider" id="mortgage-divider">
+        <p class="mortgage-total-text" id="mortgage-total-text">Total you'll repay over the term</p>
+        <h2 class="mortgage-total-amount" id="mortgage-total-amount">£0.00</h2>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+    <script src="mortagege.js"></script>
