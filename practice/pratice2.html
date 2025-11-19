@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Item-cart{
+            background-color: gray;
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+        }
+        .item-name,
+        .item-price,
+        .item-count{
+            padding: 10px;
+            font-family: sans-serif;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" name="" id="items">
+    <p id="Totalprice"></p>
+    <button id="Button">Add to cart</button>
+</body>
+</html>
+<script>
+    const Items = document.getElementById('items');
+    const Totalprice = document.getElementById('Totalprice');
+    const Cart = [];
+    let total  = 0;
+
+    const Addtocart = function(){
+        const item = Number(Items.value);
+        total += item;
+        console.log(total);
+        const Cartitem = document.createElement('div');
+        Cartitem.classList.add('Item-cart');
+        Cartitem.innerHTML = `
+        <p class="item-count">${item}</p>
+        `;
+
+        Cart.push(Cartitem);
+        document.body.append(Cartitem);
+        Totalprice.innerText = total;
+    };
+
+    Button.addEventListener('click',Addtocart);
+    
+</script>

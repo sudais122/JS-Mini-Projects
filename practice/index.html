@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Input field
+
+Add button
+
+A list showing all items
+
+👉 Helps you understand array pushing in a real webpage. -->
+
+<input type="text" id="text">
+<button id="add">Add</button>
+</body>
+</html>
+<script>
+    const Text = document.getElementById('text');
+    const Button = document.getElementById('add');
+
+    const list = [];
+
+    const ListArray = function(){
+        const value = Text.value;
+
+        const NewLi = document.createElement('li');
+        NewLi.innerText = value;
+
+        list.push(NewLi);
+
+        document.body.appendChild(NewLi);
+        console.log(NewLi);
+    };
+
+    Button.addEventListener('click',ListArray);
+</script>
