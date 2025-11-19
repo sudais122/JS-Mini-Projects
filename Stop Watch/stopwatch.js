@@ -1,7 +1,7 @@
 const Start = document.getElementById('start');
 const Pause = document.getElementById('pause');
 const Reset = document.getElementById('reset');
-
+const Laps = document.getElementById('lap');
 let hours = 0, minutes = 0, seconds = 0, milliseconds = 0;
 let interval;
 
@@ -14,7 +14,7 @@ const update = function(){
 
 const startstopwatch = function(){
     interval = setInterval(() => {
-        milliseconds += 10;
+        milliseconds = milliseconds + 10;
         if (milliseconds >= 1000) {
             milliseconds = 0;
             seconds++;
@@ -33,18 +33,17 @@ const startstopwatch = function(){
 
 const pausestopwatch = function(){
     clearInterval(interval);
-    interval = null;
 };
 
 const ResetStoptwatch = function(){
     clearInterval(interval);
     interval = null;
-    milliseconds = 0;
-    seconds = 0;
-    minutes = 0;
-    hours = 0;
+    milliseconds ='000';
+    seconds ='00';
+    minutes = '00';
+    hours = '00';
     update();
-}
+};
 
 Start.addEventListener('click' , startstopwatch);
 Pause.addEventListener('click' , pausestopwatch);

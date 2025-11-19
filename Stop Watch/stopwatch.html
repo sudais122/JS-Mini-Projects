@@ -7,28 +7,29 @@
     <link rel="stylesheet" href="stopwatch.css">
 </head>
 <body>
-
     <div class="container">
         <h1>Stopwatch</h1>
 
         <div class="timer">
-            <p id="hours">00</p>
-            <span> : </span>
-
-            <p id="minutes">00</p>
-            <span> : </span>
-
-            <p id="seconds">00</p>
-            <span> : </span>
-
-            <p id="milliseconds">00</p>
+            <p id="hours">00</p><span> : </span>
+            <p id="minutes">00</p><span> : </span>
+            <p id="seconds">00</p><span> : </span>
+            <p id="milliseconds">000</p>
         </div>
 
         <div class="buttons">
             <button id="start">Start</button>
             <button id="pause">Pause</button>
             <button id="reset">Reset</button>
-            <button id="lap">Lap</button>
+        </div>
+
+        <div class="laps">
+            <div id="Lap">
+                <p class="Lap">Lap</p>
+                <p class="Lap-Time">Lap Time</p>
+            </div>
+
+            <div class="Laps-list"></div>
         </div>
     </div>
 
