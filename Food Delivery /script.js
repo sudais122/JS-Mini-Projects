@@ -57,10 +57,10 @@ const updateTotalPrice = function() {
   let total = 0;
 
   cartContainer.querySelectorAll('.item').forEach(item => {
-    const priceText = item.querySelector('.ProductPrice').innerText; // "$150"
-    const quantity = Number(item.querySelector('.count').innerText); // 2
+    const priceText = item.querySelector('.ProductPrice').innerText; 
+    const quantity = Number(item.querySelector('.count').innerText); 
 
-    const price = parseFloat(priceText.replace('$', '')); // 150
+    const price = parseFloat(priceText.replace('$', '')); 
     total += price * quantity; 
     console.log(total);
   });
