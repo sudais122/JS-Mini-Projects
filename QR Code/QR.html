@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+</head>
+<style>
+    .qr-container {
+    width: 100%;
+    height: 100vh;
+    background: #f4f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-card {
+    font-family: sans-serif;
+    width: 350px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    text-align: left;
+    padding: 1.5rem;
+}
+#text {
+    width: 80%;
+    padding: 14px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    transition: 0.3s;
+}
+
+#text:focus {
+    border: 1px solid rgb(38, 38, 205);
+    outline: none;
+}
+#btn{
+    width: 90%;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(38, 38, 205);
+    border: none;
+    color: white;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+.QrCode{
+    width: 85%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+.border{
+    border: 1px solid rgb(154, 154, 154);
+    border-radius: 5px;
+    padding: 5px;
+}
+#error{
+    color: red;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+</style>
+<body>
+    <div class="qr-container">
+    <div class="qr-card">
+        <p>Enter your Website URL or Text</p>
+        <input type="text" name="" id="text" placeholder="TEXT or URL">
+        <p id="error"></p>
+        <div class="QrCode">
+            <img src="" alt="" id="Qrcodeimg">
+        </div>
+        <button id="btn">Generate QR Code</button>
+    </div>
+</div>
+<script>
+const Button = document.getElementById('btn');
+const input = document.getElementById('text');
+const IMG = document.getElementById('Qrcodeimg');
+const errorMsg = document.getElementById('error');
+
+Button.addEventListener('click', () => {
+
+    if (input.value){
+        IMG.src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + input.value;
+        errorMsg.innerText = ""; 
+        IMG.classList.add('border');
+    } else {
+        errorMsg.innerText = "Please enter TEXT or URL";
+        IMG.src = ""; 
+    }
+
+});
+
+</script>
+</body>
+</html>
