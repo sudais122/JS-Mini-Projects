@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tost Notification</title>
+</head>
+<style>
+    body{
+        display: flex;
+        gap: 1rem;
+        padding: 5rem;
+    }
+    #Sucess,#Error{
+        cursor: pointer;
+        border: none;
+        background-color: aqua;
+        color: rgb(0, 0, 0);
+        padding: 10px;
+    }
+    .success-box {
+    width: 350px;
+    top: 85%;
+    left: 73%;
+    background: #ffffff;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: absolute;
+    font-family: sans-serif;
+}
+.Error-box{
+    width: 350px;
+    top: 85%;
+    left: 73%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: absolute;
+    font-family: sans-serif;
+}
+.success-content, .error-content {
+    padding-left: 1rem;
+    display: flex;
+    padding-top: 10px;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background: #2e8b57;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.icon-red{
+        width: 20px;
+    height: 20px;
+    background: #ff0000;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.success-content p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+.progress {
+    width: 100%;
+    height: 5px;
+    background: #2e8b57;
+    animation: load 2.5s linear forwards;
+}
+.progress-REd{
+    width: 100%;
+    height: 5px;
+    background: #ff0000;
+    animation: load 2.5s linear forwards;
+}
+.icon svg{
+    width: 15px;
+    height: 15px;
+}
+
+@keyframes load {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+</style>
+<body>
+    <button id="Sucess">Sucess</button>
+    <button id="Error">Invalid</button>
+
+<div class="success-box">
+    <div class="success-content">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" /></svg>
+        </div>
+        <p>Successfully submitted</p>
+    </div>
+    <div class="progress"></div>
+</div>
+<!--Error-->
+<div class="Error-box">
+    <div class="error-content">
+        <div class="icon-red">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" /></svg>        
+        </div>
+        <p>Successfully submitted</p>
+    </div>
+    <div class="progress-REd"></div>
+</div>
+    <div class="Errorpopoup"></div>
+</body>
+</html>
