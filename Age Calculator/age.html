@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        background: linear-gradient(135deg, #5324BF, #9e77a6);
+    }
+    .container{
+        width: auto;
+        display: flex;
+        font-weight: 600;
+        flex-direction: column;
+        font-family: sans-serif;
+        height: 10rem;
+        font-size: 3rem;
+        color: white;
+        line-height: 4.5rem;
+        padding: 7rem 0rem 0rem 8rem;
+    }
+    .container p span{
+        color: #FFF778;
+    }
+    .input-container{
+        margin-top: 3rem;
+        justify-content: space-between;
+        width: 35rem;
+        padding: 1.8rem;
+        background-color: #A09BE5;
+        border-radius: 10px;
+        display: flex;
+    }
+    #calculate{
+        background-color: #FEF670;
+        border: none;
+        padding: 1rem 1.5rem 1rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #calender{
+        width: 25rem;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #FEFEFE;
+        outline: none;
+    }
+    #calender:focus{
+        border: none;
+        outline: none;
+    }
+    #Result{
+        font-weight: 400;
+        font-size: 1rem;
+        color: white;
+        font-family: sans-serif;
+    }
+    #Result span{
+        color: #FEF670;
+    }
+    #Error{
+        color: red;
+        position: absolute;
+        font-weight: 400;
+        top: 45%;
+        font-size: 0.8rem;
+        font-family: sans-serif;
+
+    }
+</style>
+<body>
+    <div class="container">
+        <p>javascript <br><span>Age Calculator</span></p>
+        <div class="input-container">
+            <input type="date" name="" id="calender">
+            <button id="calculate">Calculate</button>
+        </div>
+        <p id="Result"></p>
+    </div>
+
+    <script>
+        const CalBtn = document.getElementById('calculate');
+        const Result = document.getElementById('Result');
+        const Calender = document.getElementById('calender');
+
+CalBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (!Calender.value) {
+        Result.innerText = 'Please enter DOB';
+        return;
+    }
+
+    let today = new Date();
+    let birthDate = new Date(Calender.value);
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
+
+    if (days < 0) {
+        months--;
+        let prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        let daysInPrevMonth = prevMonth.getDate();
+        days += daysInPrevMonth;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    Result.innerHTML = `You are <span>${years}</span> years, <span>${months}</span> months and <span>${days}</span> days old.`;
+});
+
+    </script>
+</body>
+</html>
