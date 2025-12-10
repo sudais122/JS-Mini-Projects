@@ -7,6 +7,7 @@
 </head>
 <style>
     body{
+        overflow: hidden;
         display: flex;
         gap: 1rem;
         padding: 5rem;
@@ -21,25 +22,27 @@
     .success-box {
     width: 350px;
     top: 85%;
-    left: 73%;
-    background: #ffffff;
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    position: absolute;
-    font-family: sans-serif;
-}
-.Error-box{
-    width: 350px;
-    top: 85%;
-    left: 73%;
+    left: 100%;
     background: #ffffff;
     display: flex;
     flex-direction: column;
     gap: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     position: absolute;
+    transition: 0.3s ease-in-out;
+    font-family: sans-serif;
+}
+.Error-box{
+    width: 350px;
+    top: 85%;
+    left: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: absolute;
+    transition: 0.3s ease-in-out;
     font-family: sans-serif;
 }
 .success-content, .error-content {
@@ -95,12 +98,6 @@
     width: 15px;
     height: 15px;
 }
-
-@keyframes load {
-    from { width: 100%; }
-    to { width: 0%; }
-}
-
 </style>
 <body>
     <button id="Sucess">Sucess</button>
@@ -121,10 +118,57 @@
         <div class="icon-red">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" /></svg>        
         </div>
-        <p>Successfully submitted</p>
+        <p>Something Went Wrong</p>
     </div>
     <div class="progress-REd"></div>
 </div>
     <div class="Errorpopoup"></div>
 </body>
 </html>
+    <script>
+        const Sucess = document.getElementById('Sucess');
+        const Error = document.getElementById('Error');
+    //sucess code
+        let width = 100;
+        let ids;
+        let SucessInterval = function(){
+            const SucProgress = document.querySelector('.progress');
+
+            if(width <= 0){
+                clearInterval(ids);
+                document.querySelector('.success-box ').style.display = 'none';
+            }else{
+                width--;
+                SucProgress.style.width = width + '%';
+            }
+        };
+
+            Sucess.addEventListener('click' , ()=>{
+                document.querySelector('.success-box ').style.left = '73%';
+                document.querySelector('.success-box ').style.display = 'flex';
+                width = 100
+                ids  = setInterval(SucessInterval,50);
+            });
+
+    //error code
+        let widthE = 100;
+        let id;
+        let SucessIntervalE = function(){
+            const SucProgress = document.querySelector('.progress-REd');
+            if(widthE <= 0){
+                clearInterval(id);
+                document.querySelector('.Error-box').style.display = 'none';
+
+            }else{
+                widthE--;
+                SucProgress.style.width = widthE + '%';
+            }
+        };
+
+            Error.addEventListener('click' , ()=>{
+                document.querySelector('.Error-box ').style.left = '73%';
+                document.querySelector('.Error-box ').style.display = 'flex';
+                width = 100;
+                idE  = setInterval(SucessIntervalE,50);
+            });
+    </script>
