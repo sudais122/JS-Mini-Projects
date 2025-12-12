@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="player.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>Music Player UI</title>
 </head>
 <body>
@@ -16,20 +17,19 @@
     </div>
 
     <div class="cover">
-        <img src="img.jpeg" alt="">
+        <img src="Khana Kaba.jpeg" alt="">
     </div>
 
-    <h2>Despacito</h2>
-    <p class="artist">Luis Fonsi Ft. Puerto Rican</p>
-
+    <h2 class="Tittle"></h2>
+    <audio src="Music Player/Audio/1.mp3" id="Audio"></audio>
     <div class="progress-area">
         <div class="progress-bar"></div>
         <div class="progress-ball"></div>
     </div>
-
     <div class="controls">
         <div class="ctrl-btn">&#9664;&#9664;</div>
         <div class="play-btn">&#9654;</div>
+        <div class="stop-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
         <div class="ctrl-btn">&#9654;&#9654;</div>
     </div>
 </div>
