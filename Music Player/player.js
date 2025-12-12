@@ -96,4 +96,7 @@ Control.addEventListener('click',(event)=>{
 
 Audio.addEventListener('ended' ,()=>{
     Cover.classList.remove('rotate');
+        playBtn.style.display = 'flex';
+        stopbtn.style.display = 'none';
+
 })
