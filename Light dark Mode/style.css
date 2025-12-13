@@ -164,7 +164,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 12px;
     z-index: 10;
 }
-
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 5%;

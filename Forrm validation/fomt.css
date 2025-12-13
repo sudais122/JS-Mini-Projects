@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a233b;
+    color: #333;
+}
+.contact-form-container {
+    background-color: #ffffff;
+    padding: 20px 40px 40px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+.send-icon-wrapper {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.send-icon {
+    font-size: 24px;
+    color: #1a233b;
+    transform: rotate(-25deg);
+}
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+.your-message{
+    border-bottom: 1px solid gray;
+}
+.form-group label {
+    flex-basis: 30%;
+    font-weight: bold;
+    color: #555;
+    white-space: nowrap;
+}
+
+.form-group input,
+.form-group textarea {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    background-color: transparent;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #b0b0b0;
+}
+
+.message-group {
+    align-items: flex-start;
+}
+
+.message-group textarea {
+    resize: vertical;
+    min-height: 80px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    display: block;
+    width: 120px;
+    margin: 30px auto 0 auto;
+    padding: 10px;
+    background-color: #1a233b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0d1222;
+}
+#full-nameCorrect,
+#phone-noCorect,
+#emailCorrect,
+#messageCorrect,
+#msgCorrect{
+    margin-left: -15px;
+    width: 1rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 1rem;
+    border-radius: 15px;
+    background-color: #2D8A62;
+}
+#full-nameCorrect svg,
+#phone-noCorect svg,
+#emailCorrect svg,
+#messageCorrect svg,
+#msgCorrect svg
+{
+    width: 0.7rem;
+    height: 0.7rem;
+    color: white;
+}
+.error{
+    color: red;
+    position: absolute;
+    font-size: 0.8rem;
+    left: 75%;
+}
