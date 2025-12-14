@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website launch</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        body > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 0 0 7rem;
+        }
+
+        nav img {
+            width: 120px;
+        }
+        .Timer-main{
+            width: 900px;
+            height: 700px;
+            padding: 12rem 0 0 7rem;
+        }
+        .Timer-main p{
+            color: white;
+            font-family: sans-serif;
+        }
+        .Timer-main h1{
+            color: white;
+            font-size: 3.5rem;
+            padding-top: 1.2rem;
+            font-family: sans-serif;
+            font-weight: bolder;
+        }
+        .Timer-main span{
+            color: #FE565A;
+        }
+        .timer{
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+            height: auto;
+        }
+        .duration{
+            color: rgb(0, 0, 0);
+        }
+        .duration h1{
+            font-weight: 300;
+        }
+        button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            border: 2px solid white;
+            background-color: transparent;
+            width: 150px;
+            height: 45px;
+            cursor: pointer;
+            margin-top: 2rem;
+        }
+        button img{
+            width: 12px;
+            height: 12px;
+        }
+    </style>
+</head>
+<body>
+    <img id="bg" src="images/background.png" alt="">
+    <nav>
+        <img src="images/logo.png" alt="">
+    </nav>
+    <div class="Timer-main">
+        <p>Website is under Maintaince</p>
+        <h1>We're  <span>Launching</span>  Soon</h1>
+        <div class="timer">
+            <div class="duration"><h1 id="day">00</h1><p>Days</p></div>
+            <div class="duration"><h1 id="hr">00</h1><p>Hours</p></div>
+            <div class="duration"><h1 id="min">00</h1><p>Minutes</p></div>
+            <div class="duration"><h1 id="sec">00</h1><p>Seconds</p></div>
+        </div>
+        <button>Learn More <img src="images/triangle.png"></button>
+    </div>
+</body>
+<script>
+const Day = document.getElementById('day');
+const Hour = document.getElementById('hr');
+const Minutes = document.getElementById('min');
+const Seconds = document.getElementById('sec');
+
+const targetDate = new Date('2025-12-15T00:00:00').getTime();
+
+function startCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    Day.innerText = days;
+    Hour.innerText = hours
+    Minutes.innerText = minutes;
+    Seconds.innerText = seconds;
+}
+
+setInterval(startCountdown, 1000);
+startCountdown();
+</script>
+</html>
