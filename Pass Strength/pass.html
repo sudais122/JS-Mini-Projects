@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strengtn</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            background-color: #232225;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        input {
+            padding-left: 10px;
+            width: 300px;
+            background-color: #232225;
+            border: 1px solid white;
+            height: 50px;
+            color: white;
+        }
+
+        input:focus {
+            border-color: #e7e7e7;
+            outline: none;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #pass-strength{
+            font-family: sans-serif;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="password" id="Password" placeholder="password">
+        <p id="pass-strength"></p>
+    </div>
+</body>
+<script>
+    const input = document.getElementById('Password');
+    const Msg = document.getElementById('pass-strength');
+
+    input.addEventListener('input' ,()=>{
+        const length = input.value.length;
+        if(length < 4){
+            Msg.innerText = 'Password is Weak';
+            input.style.border = '1px solid red';
+        }else if(length >= 4 && input.value >= 8){
+            Msg.innerText = 'Password is Medium';
+            input.style.border = '1px solid yellow';
+        }else{
+            Msg.innerText = 'Password is Strong';
+            input.style.border = '1px solid green';
+        }
+    })
+</script>
+</html>
