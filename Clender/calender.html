@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claender</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            background-color: blueviolet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .calender{
+            display: flex;
+            border-radius: 10px;
+            width: 300px;
+            height: 250px;
+            background-color: white;
+        }
+        .dateday{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+            flex-direction: column;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            width: 40%;
+            height: 100%;
+            color: white;
+            background-color: #FF501B;
+        }
+        .yrmonth{
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            width: 60%;
+            height: 100%;
+            background-color: white;
+        }
+        .yrmonth h1{
+            font-size: 6rem;
+            font-weight: 400;
+        }
+        .yrmonth h5{
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="calender">
+        <div class="yrmonth">
+            <h1 id="date">13</h1>
+            <h5 id="day">Tuesday</h5>
+        </div>
+        <div class="dateday">
+            <h2 id="month">june</h2>
+            <p id="yr">2025</p>
+        </div>
+    </div>
+</body>
+</html>
