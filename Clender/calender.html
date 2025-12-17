@@ -61,13 +61,33 @@
 <body>
     <div class="calender">
         <div class="yrmonth">
-            <h1 id="date">13</h1>
+            <h1 id="date"></h1>
             <h5 id="day">Tuesday</h5>
         </div>
         <div class="dateday">
             <h2 id="month">june</h2>
-            <p id="yr">2025</p>
+            <p id="yr"></p>
         </div>
     </div>
+
+    <script>
+        const date = document.getElementById('date');
+        const day = document.getElementById('day');
+        const month = document.getElementById('month');
+        const yr = document.getElementById('yr');
+
+        const newdate = new Date();
+        const DayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        date.innerText = newdate.getDate();
+        yr.innerText = newdate.getFullYear();
+
+        const monthIndex = newdate.getMonth(); 
+        const dayIndex = newdate.getDay();
+
+        month.innerText = months[monthIndex];
+        day.innerText = DayArray[dayIndex];
+    </script>
 </body>
 </html>
