@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Progress Bar</title>
+
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f4f6f8;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .progress-container{
+            width: 40vmin;
+            height: 40vmin;
+            max-width: 300px;
+            max-height: 300px;
+            min-width: 180px;
+            min-height: 180px;
+            position: relative;
+        }
+
+        .progress-circle{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+
+            background: conic-gradient(
+                #06810a 0deg,
+                #4caf50 var(--progress),
+                #e0e0e0 var(--progress),
+                #e0e0e0 360deg
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress-circle::before{
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            width: 75%;
+            height: 75%;
+            background: #fff;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+        }
+
+        .progress-value{
+            position: absolute;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-circle" id="progressCircle">
+            <div class="progress-value" id="progressValue">0%</div>
+        </div>
+    </div>
+
+    <script>
+        let progress = 0;
+        const target = 75; 
+        const speed = 20;
+
+        const progressCircle = document.getElementById("progressCircle");
+        const progressValue = document.getElementById("progressValue");
+
+        const interval = setInterval(() => {
+            if(progress >= target){
+                clearInterval(interval);
+            } else {
+                progress++;
+                progressValue.innerText = progress + "%";
+                progressCircle.style.setProperty(
+                    "--progress",
+                    `${progress * 3.6}deg`
+                );
+            }
+        }, speed);
+    </script>
+
+</body>
+</html>
