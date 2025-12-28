@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="WEATHER.CSS">
+</head>
+<body>
+    <div class="container">
+        <!-- Search -->
+        <div class="input">
+            <input type="text" id="cityInput" placeholder="Search City">
+            <svg id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" /></svg>
+        </div>
+        <!--if the input is empty-->  
+        <div class="empty">
+            <img src="assets/message/search-city.png" alt="">
+            <h1 style="font-size: 1.5rem; margin-bottom: 5px; margin-top: 10px;">Search City</h1>
+            <p>Find out the weather conditions of the city</p>
+        </div>
+        <!--if the city is invalid-->
+        <div class="invalid">
+            <img src="assets/message/not-found.png" alt="">
+            <h1 style="font-size: 1.5rem; margin-bottom: 5px; margin-top: 10px;">Search City</h1>
+            <p>Find out the weather conditions of the city</p>
+        </div>
+        <div class="Details">
+        <!-- Location and Date -->
+        <div class="location-date">
+            <div id="location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <h2></h2>
+            </div>
+            <div id="country"><p style="font-weight: bolder; font-size: 1.5rem;"></p></div>
+        </div>
+
+        <!-- Weather Section -->
+        <div class="weather-section">   
+            <!-- Replaced local image with an SVG for the preview to work -->
+            <div id="icon">
+                <img src="assets/weather/clear.svg" alt="">
+            </div>
+            <div id="temp">
+                <h1><span></span>°C</h1>
+                <h4>Clouds</h4>
+            </div>
+        </div>
+
+        <!-- Humidity & Wind Speed (Updated) -->
+        <div class="other-info">
+            <!-- Humidity -->
+            <div class="info-box humidity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                <h4 class="info-valueH"><span></span>%</h4>
+                <span class="info-label">Humidity</span>
+            </div>
+            
+            <!-- Wind Speed -->
+            <div class="info-box wind">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A5 5 0 1 1 11 14H2"></path><path d="M17.59 19.59A5 5 0 1 1 19 10H2"></path></svg>
+                <span class="info-value"><span></span>km/h</span>
+                <span class="info-label">Wind Speed</span>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+
+    const input = document.getElementById("cityInput");
+    const empty = document.querySelector(".empty");
+    const invalid = document.querySelector(".invalid");
+    const details = document.querySelector(".Details");
+
+    const Search  = document.getElementById("search");
+
+    Search.addEventListener('click',()=>{
+        const city = input.value.trim();
+        if(city == ""){
+            empty.style.display = "flex";
+            invalid.style.display = 'none';
+            details.style.display = 'none';
+        }else{
+            async function featchdata() {
+                try{
+                    empty.style.display = "none";
+                    details.style.display = 'block';
+                    const apikey =  await fetch(`https://api.weatherapi.com/v1/current.json?key=ef866381bb3240ccaeb182938252512&q=${city}&aqi=yes`);
+                    const data  = await apikey.json();
+
+                    const location = document.querySelector("#location h2");
+                    location.innerText = `${data.location.name}`;
+
+                    const country = document.querySelector("#country p");
+                    country.innerText = `${data.location.country}`;
+
+
+                    const temp = document.querySelector("#temp h1 span");
+                    const Temperature = data.current.temp_c;
+                    const Temp = Math.round(Temperature);
+                    temp.innerText = `${Temp}`;
+
+                    const humanity = document.querySelector(".info-valueH span");
+                    humanity.innerText = `${data.current.humidity}`;
+
+                    const windspeed = document.querySelector(".info-value span");
+                    windspeed.innerText = `${data.current.wind_kph}`;
+
+
+                    const weathercondition = document.querySelector("#temp h4");
+                    weathercondition.innerText = `${data.current.condition.text}`;
+
+                    const icon = document.querySelector("#icon img");
+                    const CONDITION = data.current.condition.text;
+
+                    if(CONDITION == 'Clear'){
+                        icon.src = "assets/weather/clear.svg";
+                    }else if(CONDITION == 'Partly cloudy' || CONDITION == 'Overcast' || CONDITION == 'Mist' || CONDITION == 'Fog' || CONDITION == 'Cloudy'){
+                        icon.src = "assets/weather/clouds.svg";
+                    }else if(CONDITION == 'Rain' || CONDITION == 'Light rain' || CONDITION == 'Moderate rain' || CONDITION == 'Heavy rain' || CONDITION == 'Patchy rain possible'){
+                        icon.src = "assets/weather/rain.svg";
+                    }else if(CONDITION == 'Snow' || CONDITION == 'Light snow' || CONDITION == 'Heavy snow' || CONDITION == 'Blowing snow' || CONDITION == 'Patchy snow possible'){
+                        icon.src = "assets/weather/snow.svg";
+                    }else if(CONDITION == 'Thunderstorm' || CONDITION == 'Moderate or heavy thunderstorm' || CONDITION == 'Patchy light rain with thunder' || CONDITION == 'Thunder'){
+                        icon.src = "assets/weather/thunderstorm.svg";
+                    }else{
+                        icon.src = "assets/weather/thunderstorm.svg";
+                    }
+                    invalid.style.display = "none";
+                    console.log(data);
+                }catch(error){
+                    invalid.style.display = "flex";
+                    details.style.display = 'none';
+                    empty.style.display = "none";
+                    console.log("Somethig went wrong");
+                }
+            }
+            featchdata();
+        }
+    })
+</script>
+</html>
