@@ -1,0 +1,213 @@
+   :root {
+            /* Dark Mode Variables Only */
+            --primary: #d63031;
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --header-bg: linear-gradient(to bottom, #1f2937, #111827);
+            --text-main: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border-color: #374151;
+            --input-bg: #1f2937;
+            --chip-bg: #374151;
+            --chip-hover: #4b5563;
+            --icon-fill: #9ca3af;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px; /* Increased width from 800px */
+            position: relative;
+        }
+
+        /* Search Bar Section */
+        .search-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            background-color: var(--input-bg);
+            color: var(--text-main);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            box-shadow: var(--shadow);
+            border-color: var(--text-secondary); /* Removed red (--primary), changed to subtle grey */
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            fill: var(--icon-fill);
+        }
+
+        /* Country Card */
+        .country-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem;
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .flag-container {
+            width: 200px;
+            height: 133px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .flag-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .country-names h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .official-name {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Card Body */
+        .card-body {
+            padding: 2rem;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .full-width-section {
+            grid-column: 1 / -1;
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Chips */
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            background-color: var(--chip-bg);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: background-color 0.2s;
+        }
+        
+        .chip:hover {
+            background-color: var(--chip-hover);
+        }
+
+        .currency-block {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .currency-code {
+            font-size: 0.85rem;
+            background: var(--text-main);
+            color: var(--card-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 640px) {
+            .card-header {
+                flex-direction: row;
+                text-align: left;
+                gap: 2rem;
+            }
+            .flag-container {
+                margin-bottom: 0;
+                width: 180px;
+                height: 120px;
+                flex-shrink: 0;
+            }
+            .country-names {
+                align-items: flex-start;
+            }
+        }
