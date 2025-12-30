@@ -14,20 +14,28 @@ const domain = document.getElementById('domain');
 const DefaultPage = document.querySelector('.intro-view');
 const Maincard = document.querySelector('.country-card');
 const ErrorPage = document.getElementById('error-view');
-const query = SearchInput.value.trim();
+const Loader = document.querySelector('.loader'); 
 
 DefaultPage.style.display = 'flex';
 Maincard.style.display = 'none';
+Loader.style.display = 'none'; 
 
 async function CountryDetails(){
+    Loader.style.display = 'block';
+    DefaultPage.style.display = 'none';
+    Maincard.style.display = 'none';
+    ErrorPage.style.display = 'none';
+
     try{
         const Respose = await fetch('https://restcountries.com/v3.1/name/' + SearchInput.value);
+        
+        if(!Respose.ok) throw new Error("Not Found");
+
         const Data = await Respose.json();
 
-        DefaultPage.style.display = 'none';
+        Loader.style.display = 'none';
         Maincard.style.display = 'block';
 
-        DefaultPage.computedStyleMap.display = 'none';
         CountryName.innerHTML = Data[0].name.common;
         OfficalName.innerHTML = Data[0].name.official;
         capital.innerHTML = Data[0].capital[0];
@@ -51,56 +59,54 @@ async function CountryDetails(){
             const Lan = document.createElement('span');
             Lan.classList.add('chip');
             Lan.innerHTML = `<span class="chip">${lang} </span>`;
-    
             document.querySelector('.chip-container').appendChild(Lan);
         });
     
-        
-        const BorderCountries = Data[0].borders
-        const bordercontainer = document.querySelector('.chip-container-border').innerHTML = '';
+        const BorderCountries = Data[0].borders;
+        document.querySelector('.chip-container-border').innerHTML = '';
 
-        BorderCountries.forEach(border =>{
-            const Border = document.createElement('span');
-            Border.classList.add('chip-border');
-            Border.innerHTML = `<span class="chip-border">${border} </span>`;
-            document.querySelector('.chip-container-border').appendChild(Border);
-        })
-    }catch{
+        if(BorderCountries) {
+            BorderCountries.forEach(border =>{
+                const Border = document.createElement('span');
+                Border.classList.add('chip-border');
+                Border.innerHTML = `<span class="chip-border">${border} </span>`;
+                document.querySelector('.chip-container-border').appendChild(Border);
+            });
+        } else {
+            document.querySelector('.chip-container-border').innerHTML = '<h3 id="noborder">This country has no border countries</h3>';
+        }
+
+    }catch(err){
+        Loader.style.display = 'none';
         Maincard.style.display = 'none';
         ErrorPage.style.display = 'block';
-        console.log("Error");
+        console.log("Error:", err);
     }
 }
 
-    searcbtn.addEventListener('click',CountryDetails)
-
+searcbtn.addEventListener('click', CountryDetails);
 
 //Weather Coding
-
 const temp = document.getElementById('temp');
 const condition = document.getElementById('weather-desc');
 const humanity = document.getElementById('humidity');
 const WindSpeed = document.getElementById('wind');
 
 async function getweater(){
-
     const query = SearchInput.value.trim();
+    if(!query) return;
+
     try{
         const Respose  = await  fetch(`https://api.weatherapi.com/v1/current.json?key=ef866381bb3240ccaeb182938252512&q=${query}`);
-        if(!Respose.ok){`HTTP Error: ${Respose.status}`}
-
         const Data = await Respose.json();
-        console.log(query);
-        const Temperature = Data.current.temp_c;
-        const TEMP = Math.round(Temperature);
-        temp.innerText = `${TEMP}`+ '°C';
 
+        temp.innerText = `${Math.round(Data.current.temp_c)}°C`;
         condition.innerText = `${Data.current.condition.text}`;
-        humanity.innerText = `${Data.current.humidity} %`
+        humanity.innerText = `${Data.current.humidity} %`;
         WindSpeed.innerText = `${Data.current.wind_kph} km/h`;
     }catch{
-        console.log('Error');
+        console.log('Weather Error');
     }
-
 }
+
 searcbtn.addEventListener('click', getweater);
