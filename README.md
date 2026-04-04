@@ -101,12 +101,4 @@ This repository showcases a wide range of small to medium-sized projects, each f
 * Experience in building reusable UI components
 * Enhanced ability to structure small-scale projects
 
----
-
-##  Future Improvements
-
-* Refactor projects using modern frameworks (React)
-* Add backend integration to selected projects
-* Improve UI/UX and accessibility
-* Optimize code structure and reusability
 
